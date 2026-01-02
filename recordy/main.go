@@ -63,9 +63,10 @@ func main() {
 	}
 
 	term.Restore(fd, oldState)
-	fmt.Println("\nRecorded events:")
+	fmt.Println("\nRecording:")
 	for _, e := range events {
-		fmt.Printf("%+v\n", e)
+		time.Sleep(time.Duration(e.T) * time.Millisecond)
+		fmt.Printf("%+v\n", e.Key)
 	}
 }
 
